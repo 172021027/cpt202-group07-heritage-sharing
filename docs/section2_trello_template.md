@@ -1,145 +1,63 @@
-# Trello Board Setup — DIY Guide
+# Jira / Trello — Screenshot Checklist for Appendix A
 
-> **Important honesty note.** I cannot create a Trello board for you,
-> and I cannot generate fake screenshots showing a board "as it looked
-> in April 2026". If your team genuinely used Trello, log into that
-> workspace and screenshot what is there. If your team did not use it,
-> then **do not invent one for the report** — the rubric explicitly
-> rewards honest description of what you actually did.
->
-> What this file gives you is the *structure* of a credible Trello
-> board for your submission module — the same structure a real team
-> would have used. If you decide to use Trello going forward (for
-> Assignment-3-supporting evidence going forward, NOT for
-> retroactive claims), this is what to build.
+> You confirmed the team actually used Jira / Trello during the
+> project. Good — that means **you do not need to build a new board**.
+> You just need to log into the workspace and capture the screenshots
+> the report will cite.
 
----
+## Where to capture from
 
-## Board layout
+- Jira / Trello workspace where Group 07 worked.
+- If the original board has been archived: re-open it via "Boards →
+  Closed boards" (Trello) or "Projects → Archived projects" (Jira).
 
-**Board name:** `CPT202 Group 07 — Heritage Sharing Platform`
+## Screenshots to take
 
-**Lists (columns) from left to right:**
-1. `Backlog`
-2. `Sprint 2 — To Do`
-3. `In Progress`
-4. `In Review`
-5. `Done`
+### Figure A.1 — Board overview
+- One full-board screenshot showing every column (Backlog → To Do →
+  In Progress → In Review → Done) and the rough card counts.
+- Crop so the workspace / team name is visible at the top — this
+  helps the marker see it is your actual board, not a generic
+  Trello home page.
 
-## Labels (colour-coded)
+### Figure A.2 — Module split table
+- Either a wiki page, a Confluence page, or a single Jira issue
+  description that lists the 9 modules and which member owns each.
+- If you do not have such a page, paste the 9-module list (from your
+  WeChat screenshot) into a Confluence/Notion/wiki page once, take
+  one screenshot, then save the page. This is a legitimate planning
+  artefact you can keep going forward.
 
-| Label | Colour | Used on cards that are… |
-|-------|--------|-------------------------|
-| `PBI4` | green | part of "Save Draft + Formal Submission" |
-| `PBI5` | yellow | part of "Copyright Declaration + Validation" |
-| `submission` | blue | scoped to my module |
-| `backend` | purple | server-side work |
-| `frontend` | orange | UI / JS work |
-| `test` | red | testing work |
+### Figure A.3 — Sprint 2 column, filtered to my work
+- Open the board, apply a filter (`label = submission` or
+  `assignee = me`), screenshot the result.
+- Goal: prove that the cards in Sprint 2 explicitly labelled
+  "submission" are assigned to me.
 
-## Cards to create (for the submission module only)
+### Figure A.4 — Card detail of one of my Module 5 cards
+- Open a card such as the one for `POST /api/resources/submit`
+  metadata binding or the copyright declaration field.
+- Make sure the screenshot shows: card title, assignee, labels,
+  checklist (or sub-tasks), and the activity / comment feed.
+- Goal: prove the card was actually worked, not just created.
 
-Each card title follows the pattern `SUB-<n> · <short title>`. Put
-descriptions, checklists and labels exactly as below.
+### Figure A.5 — Sprint 2 done vs. planned
+- A burn-down chart if Jira generated one, **or** a side-by-side of
+  the Sprint 2 "Planned" backlog and "Done" column on the last day
+  of that sprint.
+- This figure is the evidence behind §2.6 reflection #1 (optimistic
+  estimation).
 
-### SUB-12 · POST /api/resources/submit endpoint
-- Labels: `PBI4`, `submission`, `backend`
-- Estimate: 3 SP
-- Description:
-  > Implement multipart endpoint that accepts title, location,
-  > categoryId, description, tags, copyrightDeclaration, image, video.
-  > Reject unauthenticated and non-contributor users.
-- Checklist:
-  - [ ] DTO `SubmitResourceRequest`
-  - [ ] Controller method with `@RequestParam` for multipart fields
-  - [ ] Service method persists `Resource(status=PENDING_REVIEW)`
-  - [ ] Returns `{ success, resourceId }`
+## If a specific card / screenshot no longer exists
 
-### SUB-13 · Resource entity + status enum + audit row
-- Labels: `PBI4`, `submission`, `backend`
-- Estimate: 2 SP
-- Description:
-  > Define `Resource` JPA entity, `ResourceStatus` enum with backward
-  > compatibility against legacy string values, and the
-  > `ResourceAction` audit row written on every state transition.
+If a particular view was deleted at the time, **don't fabricate it**.
+Either:
+- omit that specific Appendix figure and adjust the prose to cite
+  whichever figures *do* exist, **or**
+- replace it with a real present-day artefact (e.g. the WeChat group
+  thread where the team confirmed module ownership) and label it
+  honestly: *"Figure A.2 — module-ownership confirmation message,
+  team WeChat group."*
 
-### SUB-14 · Image + video file validation
-- Labels: `PBI5`, `submission`, `backend`
-- Estimate: 2 SP
-- Description:
-  > Reject files exceeding the configured size limit; reject
-  > unsupported MIME types; short-circuit cheap checks before writing
-  > to disk so failed requests don't leave orphan files.
-
-### SUB-15 · Copyright declaration field end-to-end
-- Labels: `PBI5`, `submission`, `backend`, `frontend`
-- Estimate: 2 SP
-- Description:
-  > Add `copyrightDeclaration` to the Resource entity, DTOs, controller
-  > param list, submission form, and detail page. Server-side
-  > rejection if blank.
-
-### SUB-16 · Submission form (HTML + CSS)
-- Labels: `PBI4`, `submission`, `frontend`
-- Estimate: 2 SP
-
-### SUB-17 · Draft auto-save (localStorage)
-- Labels: `PBI4`, `submission`, `frontend`
-- Estimate: 2 SP
-- Description:
-  > Persist the in-progress form to `localStorage` under
-  > `heritage_draft` (or `heritage_draft_revise_<id>` in revise mode);
-  > restore on next visit; clear on successful submit.
-
-### SUB-18 · Resubmit-after-rejection flow
-- Labels: `PBI4`, `submission`, `backend`, `frontend`
-- Estimate: 3 SP
-- Checklist:
-  - [ ] `GET /api/resources/rejected/{id}` returns
-    `RejectedSubmissionEditResponse`
-  - [ ] `POST /api/resources/{id}/resubmit` only allowed if status =
-    REJECTED
-  - [ ] Front-end revise mode (`submission.html?mode=revise`)
-
-### SUB-19 · Integration tests (happy + access control)
-- Labels: `PBI4`, `submission`, `test`
-- Estimate: 2 SP
-- Description:
-  > Add `IT-RES-01` (contributor happy path) and `IT-RES-02`
-  > (non-contributor / anonymous blocked).
-
-### SUB-20 · Soft-delete own resource
-- Labels: `PBI4`, `submission`, `backend`
-- Estimate: 1 SP
-- Description:
-  > `DELETE /api/resources/mine/{id}` flips status to DELETED if and
-  > only if the caller is the contributor.
-
-## What to screenshot (only if this board genuinely existed)
-
-If — and only if — you have a real board to screenshot:
-1. **Board overview** (Appendix A.1): zoom out so all five columns +
-   ~6 cards per column are visible.
-2. **Sprint 2 snapshot** (Appendix A.3): filter by label `submission`
-   so reviewers can see the cards I actually worked on.
-3. **Single card detail** (Appendix A.4): open SUB-12, screenshot the
-   description + checklist + activity feed.
-
-## Strongly recommended honest fallback
-
-If the team did not actually use a Trello/Jira board, rewrite 2.3
-in the report as follows (this is the kind of phrasing that survives
-scrutiny):
-
-> *"Task allocation was conducted in weekly face-to-face planning
-> sessions and tracked in a shared spreadsheet rather than a dedicated
-> board tool such as Jira or Trello. While this kept overhead low for
-> a six-person student team, it limited visibility of in-progress
-> work; the spreadsheet snapshot at the end of Sprint 2 is reproduced
-> in Appendix A.3. Introducing a real Kanban board is one of the
-> concrete improvements identified in Section 6."*
-
-This is **better** than a fabricated board, because:
-- it gives the marker a real artefact (the spreadsheet),
-- it scores rubric point #2 ("how Scrum was *actually* applied"),
-- it sets up Section 6 (Conclusion) with a genuine improvement item.
+That kind of mixed evidence is normal in student projects and the
+rubric does not penalise it.
