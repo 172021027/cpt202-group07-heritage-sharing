@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Taxonomy</title>
+    <link rel="stylesheet" href="../../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/admin.css">
+    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../../static/js/auth-state.js"></script>
+    <script src="../../static/js/admin/admin-auth.js"></script>
+    <script src="../../static/js/admin/taxonomy.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform - Admin</h1>
+            <nav>
+                <a href="../admin.html">Dashboard</a>
+                <a href="../login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading taxonomy...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <div class="admin-toolbar">
+                <div class="left">
+                    <input class="admin-input" type="text" id="taxonomy-search" placeholder="Search categories / tags">
+                </div>
+                <div class="right">
+                    <button class="admin-btn primary" id="add-category">Add Category</button>
+                    <button class="admin-btn primary" id="add-tag">Add Tag</button>
+                </div>
+            </div>
+
+            <div class="admin-panel">
+                <h3>Categories</h3>
+                <div id="category-error" class="admin-error-message"></div>
+                <table class="admin-table" aria-label="Categories">
+                    <thead>
+                        <tr>
+                            <th class="taxonomy-col-name">Name</th>
+                            <th class="taxonomy-col-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categories-tbody"></tbody>
+                </table>
+            </div>
+
+            <div class="admin-spacer-16"></div>
+
+            <div class="admin-panel">
+                <h3>Tags</h3>
+                <div id="tag-error" class="admin-error-message"></div>
+                <table class="admin-table" aria-label="Tags">
+                    <thead>
+                        <tr>
+                            <th class="taxonomy-col-name">Name</th>
+                            <th class="taxonomy-col-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tags-tbody"></tbody>
+                </table>
+            </div>
+
+            <div class="admin-spacer-16"></div>
+
+            <div class="admin-panel">
+                <h3>Merge Tags</h3>
+                <div class="taxonomy-merge-row">
+                    <div class="taxonomy-merge-field">
+                        <label for="secondary-tag" class="taxonomy-merge-label">Secondary Tag (to merge)</label>
+                        <select id="secondary-tag" class="admin-select">
+                            <option value="">Select Secondary Tag</option>
+                        </select>
+                    </div>
+                    <div class="taxonomy-merge-field">
+                        <label for="primary-tag" class="taxonomy-merge-label">Primary Tag (to keep)</label>
+                        <select id="primary-tag" class="admin-select">
+                            <option value="">Select Primary Tag</option>
+                        </select>
+                    </div>
+                    <div class="taxonomy-merge-action">
+                        <button class="admin-btn primary taxonomy-merge-btn" id="merge-tags">Merge</button>
+                    </div>
+                </div>
+                <div id="merge-error" class="admin-error-message"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

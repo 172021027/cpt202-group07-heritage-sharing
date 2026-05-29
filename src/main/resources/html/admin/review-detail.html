@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Review Detail</title>
+    <link rel="icon" href="../../static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/admin.css">
+    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../../static/js/auth-state.js"></script>
+    <script src="../../static/js/admin/admin-auth.js"></script>
+    <script src="../../static/js/admin/review-detail.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform - Admin</h1>
+            <nav>
+                <a href="../admin.html">Dashboard</a>
+                <a href="../login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading review detail...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <section class="admin-panel">
+                <h3>Resource detail</h3>
+                <div class="admin-panel admin-panel-flat">
+                    <div class="muted admin-content-box" id="rd-content-current"></div>
+                </div>
+            </section>
+
+            <div class="admin-spacer-16"></div>
+
+            <section class="admin-panel">
+                <h3>Review decision</h3>
+                <div class="admin-toolbar admin-toolbar-flat">
+                    <div class="left admin-full-width">
+                        <input class="admin-input admin-input-full" id="rd-note" placeholder="Feedback (required)">
+                    </div>
+                </div>
+                <div class="admin-field-error admin-hidden" id="rd-note-error"></div>
+                <div class="admin-spacer-12"></div>
+                <div class="admin-actions review-decision-actions">
+                    <button class="admin-btn primary" id="rd-approve" type="button">Approve</button>
+                    <button class="admin-btn danger" id="rd-reject" type="button">Reject</button>
+                    <a class="admin-btn" href="review-list.html">Back</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

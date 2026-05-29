@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Resources</title>
+    <link rel="icon" href="../../static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/admin.css">
+    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../../static/js/auth-state.js"></script>
+    <script src="../../static/js/admin/admin-auth.js"></script>
+    <script src="../../static/js/admin/resources.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform - Admin</h1>
+            <nav>
+                <a href="../admin.html">Dashboard</a>
+                <a href="../login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading resources...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <div class="admin-toolbar">
+                <div class="left">
+                    <input class="admin-input" type="text" id="resources-search" placeholder="Search resources">
+                    <select class="admin-input resource-filter-select" id="resources-filter">
+                        <option value="">All status</option>
+                        <option value="approved">approved</option>
+                        <option value="archived">archived</option>
+                        <option value="unpublished">unpublished</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <button class="admin-btn" id="resources-history">History</button>
+                </div>
+            </div>
+
+            <div class="admin-panel">
+                <h3>Resources</h3>
+                <table class="admin-table" aria-label="Resources">
+                    <thead>
+                        <tr>
+                            <th class="resource-col-title">Title</th>
+                            <th class="resource-col-category">Category</th>
+                            <th class="resource-col-status">Status</th>
+                            <th class="resource-col-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resources-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- Unpublish Reason Modal -->
+    <div id="unpublish-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Unpublish Resource</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Please enter the reason for unpublishing:</p>
+                <textarea id="unpublish-reason" rows="3" maxlength="500" placeholder="Enter reason here..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="admin-btn" id="cancel-unpublish">Cancel</button>
+                <button class="admin-btn primary" id="confirm-unpublish">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Operation History</h3>
+                <select class="admin-input resource-filter-select" id="history-action-filter" aria-label="Filter by action type">
+                    <option value="">All Action Types</option>
+                </select>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <table class="admin-table" id="history-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Resource</th>
+                            <th>Action Type</th>
+                            <th>Action By</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="pagination" id="history-pagination"></div>
+                <button class="admin-btn primary" id="close-history">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+    html {
+        overflow-y: scroll;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", "Microsoft YaHei", Arial, sans-serif;
+    background:
+        linear-gradient(var(--heritage-bg-overlay), var(--heritage-bg-overlay)),
+        url("../images/heritage-background.avif") center center / cover no-repeat fixed;
+    color: var(--heritage-ink);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--heritage-nav);
+    color: white;
+    padding: 15px 0;
+    border-bottom: 4px solid var(--heritage-red);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: #fff4df;
+    font-weight: 700;
+}
+
+nav a {
+    color: #fff4df;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(159, 61, 46, 0.55);
+}
+
+body.app-confirm-open {
+    overflow: hidden;
+}
+
+.app-confirm[hidden] {
+    display: none !important;
+}
+
+.app-confirm {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-confirm__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(47, 42, 36, 0.45);
+    backdrop-filter: blur(2px);
+}
+
+.app-confirm__card {
+    position: relative;
+    width: min(100%, 420px);
+    background: var(--heritage-paper);
+    border: 1px solid var(--heritage-border);
+    border-radius: 14px;
+    box-shadow: 0 18px 42px rgba(47, 42, 36, 0.22);
+    padding: 24px;
+}
+
+.app-confirm__card h2 {
+    margin-bottom: 8px;
+    color: var(--heritage-ink);
+    font-size: 1.4rem;
+}
+
+.app-confirm__card p {
+    margin-bottom: 20px;
+    color: var(--heritage-muted);
+    white-space: pre-line;
+}
+
+.app-confirm__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.app-confirm__btn {
+    border: 1px solid var(--heritage-border);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font: inherit;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.app-confirm__btn:hover {
+    transform: translateY(-1px);
+}
+
+.app-confirm__btn--secondary {
+    background: #fff;
+    color: var(--heritage-ink);
+}
+
+.app-confirm__btn--secondary:hover {
+    background: var(--heritage-highlight);
+}
+
+.app-confirm__btn--primary {
+    background: var(--heritage-green);
+    border-color: var(--heritage-green);
+    color: #fff;
+}
+
+.app-confirm__btn--primary:hover {
+    background: #345c51;
+    border-color: #345c51;
+}
+
+.app-confirm__btn--danger {
+    background: var(--heritage-red);
+    border-color: var(--heritage-red);
+    color: #fff;
+}
+
+.app-confirm__btn--danger:hover {
+    background: var(--heritage-red-dark);
+    border-color: var(--heritage-red-dark);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-image:
+        linear-gradient(rgba(217, 199, 163, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 199, 163, 0.18) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+
+footer {
+    background: var(--heritage-nav);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 4px solid var(--heritage-red);
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .app-confirm__actions {
+        flex-direction: column-reverse;
+    }
+
+    .app-confirm__btn {
+        width: 100%;
+    }
+}
+
+/* Loading Animation Styles */
+.page-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.loading-card {
+    background-color: var(--heritage-paper);
+    border: 1px solid var(--heritage-border);
+    border-radius: 8px;
+    box-shadow: 0 3px 12px var(--heritage-shadow);
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--heritage-muted);
+    font-size: 1rem;
+}
+
+.loading-spinner {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 14px;
+    border: 3px solid #e7d8ba;
+    border-top-color: var(--heritage-red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.page-content {
+    display: none;
+}

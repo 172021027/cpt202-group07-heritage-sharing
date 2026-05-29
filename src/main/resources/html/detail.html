@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Resource Detail</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/detail.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/app-common.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/detail.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform</h1>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading resource...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <div class="detail-container">
+                <div class="detail-header">
+                    <h2 id="title"></h2>
+                    <a class="back-search-btn" href="search.html">Back to Search</a>
+                </div>
+
+                <img id="image" src="" alt="image">
+
+                <div id="video-container">
+                    <h4 id="video-display-title"></h4>
+                    <video id="video-player" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="info-section">
+                    <p><strong>Description:</strong> <span id="description"></span></p>
+                    <p><strong>Category:</strong> <span id="category"></span></p>
+                    <p><strong>Tags:</strong> <span id="tags"></span></p>
+                    <p><strong>Location:</strong> <span id="location"></span></p>
+                    <p><strong>Contributors:</strong> <span id="contributors"></span></p>
+                    <p><strong>Publication Date:</strong> <span id="date"></span></p>
+                </div>
+            </div>
+
+            <div class="detail-container">
+                <h3>Comments</h3>
+                <div class="comment-post-box">
+                    <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+                    <div id="comment-error" class="error-message"></div>
+                    <button id="submit-comment" class="btn-primary">Post</button>
+                </div>
+
+                <div id="comment-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <template id="comment-template">
+        <div class="comment-item">
+            <div class="comment-header">
+                <span class="comment-user"><strong></strong></span>
+                <span class="comment-time"></span>
+            </div>
+            <div class="comment-body">
+                <p class="comment-text"></p>
+                <div class="comment-actions right-align">
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

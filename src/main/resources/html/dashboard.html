@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Dashboard</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/dashboard.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform</h1>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-main is-loading" aria-busy="true">
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading dashboard...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <section class="admin-hero myworks-hero">
+                <div>
+                    <h2>My Submitted Resources</h2>
+                    <p class="muted">
+                        Check review status, view reviewer feedback, and manage submissions according to your current role.
+                    </p>
+                </div>
+            </section>
+
+            <section class="myworks-stats">
+                <div class="myworks-stat-card">
+                    <div class="myworks-stat-title">Pending Resources</div>
+                    <div class="myworks-stat-value" id="pendingCount">0</div>
+                </div>
+                <div class="myworks-stat-card">
+                    <div class="myworks-stat-title">Approved Resources</div>
+                    <div class="myworks-stat-value" id="approvedCount">0</div>
+                </div>
+                <div class="myworks-stat-card">
+                    <div class="myworks-stat-title">Rejected Resources</div>
+                    <div class="myworks-stat-value" id="rejectedCount">0</div>
+                </div>
+            </section>
+
+            <section class="admin-toolbar">
+                <div class="left">
+                    <input type="text" id="searchInput" class="admin-input admin-input-wide"
+                        placeholder="Search my resources by title">
+                    <select id="statusFilter" class="admin-input">
+                        <option value="all">All Resources</option>
+                        <option value="pending">Pending Review</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <a class="admin-btn primary myworks-link-btn" id="newSubmissionBtn" href="submission.html">Submit New Resources</a>
+                </div>
+            </section>
+
+            <div id="myWorksContainer"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

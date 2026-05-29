@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Profile</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/profile.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform</h1>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="pageLoading" class="page-loading">
+                <div class="loading-card">
+                    <div class="loading-spinner"></div>
+                    <div>Loading profile...</div>
+                </div>
+            </div>
+
+            <div id="pageContent" class="page-content">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="avatar-container">
+                            <img id="profileAvatar" src="/static/images/default-avatar.svg" alt="Profile Avatar">
+                            <input type="file" id="avatarInput" accept="image/*">
+                        </div>
+
+                        <div class="profile-identity">
+                            <strong id="profileIdentity">Username#-</strong>
+                            <div class="profile-role-display">
+                                <span>Role</span>
+                                <strong id="profileRole">user</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contributor-request-panel">
+                        <div>
+                            <strong>Contributor Access</strong>
+                            <p id="contributorRequestHint">Apply to submit heritage resources for admin review.</p>
+                        </div>
+                        <button id="applyContributorBtn" type="button">Apply</button>
+                    </div>
+
+                    <div class="profile-section-divider"></div>
+
+                    <div class="profile-meta-row">
+                        <div class="form-group">
+                            <label for="profileUsername">Username <span class="required">*</span></label>
+                            <input type="text" id="profileUsername" disabled>
+                            <p class="error-text" id="usernameError"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileGender">Gender</label>
+                            <select id="profileGender" disabled>
+                                <option value="">Not selected</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profileBio">Personal Description</label>
+                        <textarea id="profileBio" rows="4" disabled></textarea>
+                        <p class="error-text" id="bioError"></p>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="editBtn" type="button">Edit</button>
+                        <button id="saveBtn" type="button">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

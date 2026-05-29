@@ -1,0 +1,16 @@
+:root {
+    --heritage-bg: #f7f1e4;
+    --heritage-bg-overlay: rgba(247, 241, 228, 0.76);
+    --heritage-paper: #fffaf0;
+    --heritage-surface: #fffdf6;
+    --heritage-ink: #2f2a24;
+    --heritage-nav: #3b2b24;
+    --heritage-muted: #756b5d;
+    --heritage-red: #9f3d2e;
+    --heritage-red-dark: #7f2f24;
+    --heritage-green: #3f6f61;
+    --heritage-border: #d9c7a3;
+    --heritage-soft: #e8dcc4;
+    --heritage-highlight: #efe2ca;
+    --heritage-shadow: rgba(91, 64, 39, 0.12);
+}

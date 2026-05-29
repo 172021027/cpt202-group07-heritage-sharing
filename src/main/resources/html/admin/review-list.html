@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Review List</title>
+    <link rel="icon" href="../../static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/admin.css">
+    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../../static/js/auth-state.js"></script>
+    <script src="../../static/js/admin/admin-auth.js"></script>
+    <script src="../../static/js/admin/review-list.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform - Admin</h1>
+            <nav>
+                <a href="../admin.html">Dashboard</a>
+                <a href="../login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading review list...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <div class="admin-toolbar">
+                <div class="left">
+                    <input class="admin-input" type="text" id="review-search"
+                        placeholder="Search pending review resources">
+                </div>
+                <div class="right"></div>
+            </div>
+
+            <div class="admin-panel">
+                <h3>Pending review</h3>
+                <table class="admin-table" aria-label="Pending review resources">
+                    <thead>
+                        <tr>
+                            <th class="col-title">Title</th>
+                            <th class="col-category">Category</th>
+                            <th class="col-status">Status</th>
+                            <th class="col-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="review-tbody"></tbody>
+                </table>
+            </div>
+            <div class="admin-spacer-12"></div>
+            <div id="review-pagination"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

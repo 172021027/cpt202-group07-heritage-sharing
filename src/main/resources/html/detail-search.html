@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Search Results</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/detail-search.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/app-common.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/detail-search.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform</h1>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading search results...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <div class="search-header">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search for heritage...">
+                    <button id="search-btn">Search</button>
+                </div>
+                <button id="filter-toggle" class="filter-btn">Filter</button>
+            </div>
+
+            <div class="filter-section" id="filter-section">
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="filter-category">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Tag:</label>
+                    <select id="filter-tag">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location:</label>
+                    <select id="filter-location">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <button id="apply-filter" class="apply-btn">Apply Filter</button>
+            </div>
+
+            <div class="results-section">
+                <h3>Search Results</h3>
+                <div class="results-grid" id="results-grid">
+                    <!-- Search results will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

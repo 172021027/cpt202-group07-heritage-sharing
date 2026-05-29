@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Search</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/search.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/app-common.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/search.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="header-container">
+        <h1>Heritage Sharing Platform</h1>
+        <nav>
+            <a href="search.html">Search</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html" data-auth-action="logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div id="pageLoading" class="page-loading">
+        <div class="loading-card">
+            <div class="loading-spinner"></div>
+            <div>Loading search...</div>
+        </div>
+    </div>
+
+    <div id="pageContent" class="page-content">
+        <div class="search-section">
+            <h2>Discover Cultural Heritage</h2>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search for heritage sites, artifacts, traditions...">
+                <button id="search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="heritage-section">
+            <h3>Featured Heritage</h3>
+            <div class="heritage-grid" id="heritage-grid">
+                <!-- Heritage items will be loaded here -->
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

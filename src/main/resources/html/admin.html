@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sharing Platform - Admin</title>
+    <link rel="icon" href="../static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/admin/admin-auth.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="header-container">
+        <h1>Heritage Sharing Platform - Admin</h1>
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="login.html" data-auth-action="logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div id="pageLoading" class="page-loading">
+        <div class="loading-card">
+            <div class="loading-spinner"></div>
+            <div>Loading admin dashboard...</div>
+        </div>
+    </div>
+
+    <div id="pageContent" class="page-content">
+        <section class="admin-hero">
+            <h2>Admin Dashboard</h2>
+            <p class="muted">Manage taxonomy, review pending resources, and operate on approved resources.</p>
+        </section>
+
+        <section class="admin-cards" aria-label="Admin modules">
+            <a class="admin-card" href="admin/taxonomy.html">
+                <div class="admin-card-title">Category & Tag Management</div>
+                <div class="admin-card-desc">Maintain categories and tags; supports create/edit/delete (prototype data).
+                </div>
+                <div class="admin-card-cta">Enter</div>
+            </a>
+
+            <a class="admin-card" href="admin/review-list.html">
+                <div class="admin-card-title">Pending Resources</div>
+                <div class="admin-card-desc">View the pending resource list; simulate review actions and navigation.
+                </div>
+                <div class="admin-card-cta">Enter</div>
+            </a>
+
+            <a class="admin-card" href="admin/resources.html">
+                <div class="admin-card-title">All Resources Management</div>
+                <div class="admin-card-desc">Perform archive / unpublish / restore actions on approved resources
+                    (prototype).</div>
+                <div class="admin-card-cta">Enter</div>
+            </a>
+
+            <a class="admin-card" href="admin/contributor-requests.html">
+                <div class="admin-card-title">Contributor Management</div>
+                <div class="admin-card-desc">Approve contributor applications and revoke contributor access.</div>
+                <div class="admin-card-cta">Enter</div>
+            </a>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Heritage Sharing Platform. All rights reserved.</p>
+</footer>
+
+<script>
+    $(function () {
+        function showContent() {
+            $("#pageLoading").hide();
+            $("#pageContent").show();
+        }
+
+        if (window.AdminCommon && typeof window.AdminCommon.ensureAdminOrRedirect === 'function') {
+            window.AdminCommon.ensureAdminOrRedirect(showContent);
+        } else {
+            showContent();
+        }
+    });
+</script>
+</body>
+
+</html>
