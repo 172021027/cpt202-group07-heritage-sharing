@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Heritage - Heritage Sharing Platform</title>
+    <link rel="stylesheet" href="../static/css/theme-tokens.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/submission.css">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/auth-state.js"></script>
+    <script src="../static/js/submission.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Heritage Sharing Platform</h1>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" data-auth-action="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="pageLoading" class="page-loading">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div>Loading submission...</div>
+            </div>
+        </div>
+
+        <div id="pageContent" class="page-content">
+            <section class="submission-section">
+                <div class="section-header">
+                    <h2 id="submissionTitle">Create New Archive</h2>
+                    <p class="muted" id="submissionSubtitle">Contribute to global cultural preservation by sharing heritage details.</p>
+                </div>
+
+                <div class="admin-panel submission-form">
+                    <div class="admin-empty revise-feedback-box" id="reviseStatusMessage" hidden></div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Title<span class="required-star">*</span></label>
+                            <input type="text" id="name" class="admin-input validate-field"
+                                placeholder="e.g. Forbidden City" maxlength="50">
+                            <div class="char-count" id="nameCount">0/50</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location<span class="required-star">*</span></label>
+                            <input type="text" id="loc" class="admin-input validate-field"
+                                placeholder="City or Site name...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category<span class="required-star">*</span></label>
+                            <select id="category" class="admin-input validate-field">
+                                <option value="">Select Category...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tags (Max 3)<span class="required-star">*</span></label>
+                            <select id="tagSelect" class="admin-input">
+                                <option value="">Add a tag...</option>
+                            </select>
+                            <div class="tag-display-area" id="addedTagsContainer"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Detailed Description<span class="required-star">*</span></label>
+                        <textarea id="desc" class="admin-input validate-field" rows="4" placeholder="Tell the story..."
+                            maxlength="5000"></textarea>
+                        <div class="char-count" id="descCount">0/5000</div>
+                    </div>
+
+                    <div class="form-sub-section">
+                        <h4>Media & Resources</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Image (Required)<span class="required-star">*</span></label>
+                                <input type="file" id="file" class="admin-input validate-field" accept="image/*">
+                                <div id="filePreviewContainer"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Video (Required)<span class="required-star">*</span></label>
+                                <input type="file" id="videoFile" class="admin-input validate-field" accept="video/*">
+                                <div id="videoPreviewContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <div class="agreement-box">
+                            <input type="checkbox" id="agreeCheck">
+                            <label for="agreeCheck">I agree to the <span class="link-text" id="viewAgreement">Copyright Agreement</span></label>
+                        </div>
+                        <div class="action-buttons">
+                            <div class="back-with-tip">
+                                <span id="draftTip">Saved!</span>
+                                <button class="admin-btn secondary" id="backBtn" type="button">Back</button>
+                            </div>
+                            <button class="admin-btn" id="draftBtn" type="button">Save Draft</button>
+                            <button class="admin-btn primary" id="addBtn" type="button" disabled>Submit Everything</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="modal" id="agreementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Copyright Agreement</h3>
+            </div>
+            <div class="modal-body">
+                <p>1. Content must be original.</p>
+                <p>2. Platform can use for education.</p>
+                <p>3. No illegal content.</p>
+                <p>4. Avoid repetitive posts.</p>
+                <p>5. Stay real, stay true.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="admin-btn primary" id="modalOk">I Understand</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
